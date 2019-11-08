@@ -1,0 +1,68 @@
+{
+  "name": "project-boilerplate",
+  "version": "1.0.0",
+  "description": "Project boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "serve": "gulp dev --development",
+    "build": "gulp build --production",
+    "clean:serve": "gulp clean --development",
+    "clean:build": "gulp clean --production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Gulp4",
+    "Pug",
+    "Sass",
+    "ES6"
+  ],
+  "author": "GreatMonkeyJ",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GreatMonkeyJ/project-boilerplate.git"
+  },
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-async-to-generator": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-register": "^6.26.0",
+    "babelify": "^10.0.0",
+    "browser-sync": "^2.26.3",
+    "browserify": "^16.2.3",
+    "del": "^5.1.0",
+    "glob": "^7.1.4",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-beautify": "^3.0.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^6.1.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-mode": "^1.0.2",
+    "gulp-prettify": "^0.5.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.2",
+    "js-stringify": "^1.0.2",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

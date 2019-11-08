@@ -1,0 +1,21 @@
+- var { project } = require('./config');
+- var title = project.title.charAt(0).toUpperCase() + project.title.slice(1);
+block variables
+
+<!DOCTYPE html>
+html(lang="ko")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title !{title}
+    link(rel="stylesheet" href=`/css/${project.title}.min.css`)
+  body(class=bodyClass)
+    block body
+      #wrap
+        include /components/common/header
+        include /components/common/contents
+        include /components/common/footer
+
+      script(src="/js/plugins/jquery-1.12.4.min.js")
+      script(src=`/js/${project.title}.bundle.min.js`)

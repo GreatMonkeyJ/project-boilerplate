@@ -1,0 +1,14 @@
+#wrap { width:100%; height:100%; text-align:center; }
+#header, #contents, #footer { display:flex; flex-flow:column wrap; justify-content:center; height:33.33vh; box-sizing:border-box; }
+
+@include media('mobile') {
+  #header, #contents, #footer { border:1px solid pink; background:hotpink; }
+}
+
+@include media('tablet') {
+  #header, #contents, #footer { border:1px solid hotpink; background:pink; }
+}
+
+@include media('pc') {
+  #header, #contents, #footer { border:1px solid yellow; background:yellowgreen; }
+}

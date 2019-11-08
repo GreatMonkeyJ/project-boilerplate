@@ -1,0 +1,15 @@
+/* Reset default variables */
+$global-background-color: #fff;
+$global-font-color: #333;
+$global-font-size: 14px;
+
+/* Languages */
+$global-font-family: (
+  'ko': ('Noto Sans KR', Dotum, '돋움', arial, verdana, sans-serif),
+  'en': (Helvetica, Arial, sans-serif),
+  'ja': ('Meiryo', 'メイリオ', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', sans-serif),
+  'vi': ('Helvetica Neue', Helvetica, Arial, sans-serif)
+);
+
+/* Common variables */
+$src: '../images';
