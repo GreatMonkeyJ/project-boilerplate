@@ -1,7 +1,7 @@
 /* Reset default variables */
-$global-background-color: #fff;
-$global-font-color: #333;
-$global-font-size: 14px;
+$global-background-color: #282c34;
+$global-font-color: #ececec;
+$global-font-size: 12px;
 
 /* Languages */
 $global-font-family: (
@@ -12,4 +12,13 @@ $global-font-family: (
 );
 
 /* Common variables */
-$src: '../images';
+$base-down-color:#21252b;
+$base-up-color:#282c34;
+$base-line-color:#606368;
+$code-id-color:#61afef;
+$code-class-color:#d19a66;
+$code-cbra-color:#e5c07b;
+$code-num-color:#da70d6;
+$code-pseu-color:#56b6c2;
+$code-other-color:#98c379;
+$code-vari-color:#e06c75;

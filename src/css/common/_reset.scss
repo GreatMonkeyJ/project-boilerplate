@@ -1,6 +1,6 @@
 /* Reset */
 html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img { margin:0; padding:0; -webkit-tap-highlight-color:rgba(0, 0, 0, 0); }
-html, body { width:100%; height:100%; }
+html, body { min-width:375px; width:100%; height:100%; font-size:$global-font-size; }
 body, code { font-size:$global-font-size; color:$global-font-color; background:$global-background-color; -webkit-text-size-adjust:none; }
 ul, ol, dl, li { list-style:none; }
 img, fieldset { border:0; max-width:100%; vertical-align:top; }
@@ -12,10 +12,20 @@ input, select, textarea { font-size:$global-font-size; color:$global-font-color;
 label { cursor:pointer; }
 caption { overflow:hidden; width:1px; font-size:1px; line-height:0; text-indent:150%; white-space:nowrap; }
 legend { display:block; overflow:hidden; position:absolute; font-size:1px; line-height:0; color:transparent; text-indent:-150%; white-space:nowrap; }
-button { overflow:visible; padding:0; margin:0; border:0; outline:0; cursor:pointer; -webkit-user-select:none; background:transparent; }
+button { overflow:visible; padding:0; margin:0; border:0; outline:0; color:inherit; cursor:pointer; -webkit-user-select:none; background:transparent; transition:all .3s ease; }
+button:hover { border-color:$code-id-color !important; }
 button::-moz-focus-inner { padding:0; border:0; }
-a { text-decoration:none; color:#000; }
-a:hover { text-decoration:underline; }
+a { text-decoration:none; color:$global-font-color; }
+a:hover { text-decoration:none; }
+input,
+textarea { width:100%; border:0; box-sizing:border-box; background:transparent; color:$code-other-color; transition:all .3s ease;
+  &::placeholder { color:$code-class-color; font-size:inherit; line-height:inherit; }
+  &:hover { border-color:$code-id-color !important; }
+  &:focus { border-color:$code-vari-color !important; }
+  &:invalid { border-color:$code-vari-color !important; }
+}
+input { height:3rem; line-height:3rem; }
+textarea { height:15rem; line-height:1.5; }
 
 /* html5 */
 object, del, sub, var { margin:0; padding:0; }

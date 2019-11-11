@@ -1,16 +1,61 @@
 extends components/layouts/layout
 
-block append variables
-  - var bodyClass = 'index';
-
-block append header
-  p Block append Header
-
 block append contents
-  p Block append Contents
+  section#home
+    div.inner
+      strong.title GreatMonkeyJ
+      div.content
+        span Front-End Developer
 
-block append footer
-  p Block append Footer
+  section#about
+    div.inner
+      strong.title About Me
+      div.content
+        div.intro
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat. Donec eu vehicula neque. Donec viverra lorem nunc, tempus euismod eros sollicitudin ut. Quisque et tincidunt libero. Donec id pharetra justo. Proin euismod lacinia dolor, eu scelerisque justo tempus pharetra. Vivamus nunc justo, finibus ut nisl sed, euismod rhoncus nulla. Proin sed magna egestas, egestas ante et, congue eros. In consequat, mauris dapibus tincidunt suscipit, ex libero aliquet diam, at maximus risus enim non leo.
+
+  section#experience
+    div.inner
+      strong.title Experience
+      div.content
+        - var experienceData = require('./src/js/data/experience.js');
+        ul.expList
+          each experience in experienceData
+            li
+              div.date
+                span.start= experience.date.start
+                span.end= experience.date.end
+              div.company
+                strong.employer= experience.company.employer
+                span.position= experience.company.position
+                p.details= experience.company.detail
+
+  section#skills
+    div.inner
+      strong.title Skills
+      div.content
+        - var skills = require('./src/js/data/skills.js');
+        ul.skillList
+          each skill in skills
+            li(style=`border-color:${skill.pointColor}; background-color:${skill.pointColor}; --percent:${skill.proficiency};`)
+              div.wave
+                strong.name= skill.name
+                span.proficiency= skill.proficiency
+
+  section#contact
+    div.inner
+      strong.title Contact
+      div.content
+        form(action="https://formspree.io/xayynlqk" method="POST" id="contactForm")
+          input(type="text" name="name" id="name" placeholder="이름" required)
+          input(type="email" name="email" id="email" placeholder="이메일" required)
+          textarea(name="message" id="message" placeholder="메시지를 입력해주세요." required)
+          button(type="submit" id="contactFormSubmit") 전송
 
 block append body
+  script(src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js")
   script(src="/js/ui/index.js")
+  script(src="/js/ui/animation.js")

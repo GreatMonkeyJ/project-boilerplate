@@ -1,0 +1,28 @@
+.wave { overflow:hidden; @include flex-container(center, center); flex-flow:column wrap; position:relative; width:15rem; height:15rem; border:.3rem solid rgba(40, 44, 52, 1); border-radius:50%;
+  &:before,
+  &:after { content:''; display:block; position:absolute; left:-50%; top:calc(-100% - var(--percent)); width:200%; height:200%; transform:translate(0, 0) ratate(0); }
+  &:before { z-index:1; border-radius:44%; background-color: rgba(40, 44, 52, .4); animation:rotate 6s linear infinite; }
+  &:after { z-index:2; border-radius:48%; background-color: rgba(40, 44, 52, .9); animation:rotate 10s linear 5s infinite; }
+  .name { position:relative; z-index:3; font-size:1.5rem; }
+  .proficiency { position:relative; z-index:3; margin-top:.3rem; font-size:1.3rem; }
+}
+
+@keyframes rotate {
+  50% {
+      transform:translate(0, -2%) rotate(180deg);
+  } 100% {
+      transform:translate(0, 0) rotate(360deg);
+  }
+}
+
+@include media('pc') {
+  .wave { width:15rem; height:15rem; }
+}
+
+@include media('tablet') {
+  .wave { width:14rem; height:14rem; }
+}
+
+@include media('mobile') {
+  .wave { width:12rem; height:12rem; }
+}

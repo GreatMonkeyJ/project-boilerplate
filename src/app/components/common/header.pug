@@ -1,3 +1,11 @@
 header#header.header
   block header
-    h1 Header
+    h1.hidden Portfolio - GreatMonkeyJ
+    nav#nav.nav
+      button(type="button" class="toggleMenu")
+        span Menu
+      - var values = ['GreatMonkeyJ', 'About', 'Experience', 'Skills', 'Contact']
+      ul
+        each value in values
+          li
+            strong(data-move-target=`${value.toLowerCase()}`)= value

@@ -1,3 +1,11 @@
 footer#footer.footer
   block footer
-    strong Footer
+    div.inner
+      div.social
+        - var social = require('./src/js/data/social.js');
+        each item, i in social
+          span
+            a(href=item.link target="_blank" title=item.name)
+              svg(class=`${item.name.toLowerCase()}`)
+                use(xlink:href=`/svg/svg_sprite.svg#${item.name.toLowerCase()}`)
+      strong Copyright © 2019 GreatMonkeyJ

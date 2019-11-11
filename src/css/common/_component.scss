@@ -1,1 +1,26 @@
+/* Global */
+.hidden { display:none; }
+.error { color:$code-vari-color; }
+
 /* Components */
+section { position:relative; background:$base-down-color;
+  &:nth-of-type(2n+1) { background:$base-up-color; }
+
+  .inner { padding:0 0 10rem; border-top:1px solid $base-up-color; text-align:center;
+    .title { display:inline-block; padding:5rem 0 4rem; color:$code-id-color; font-size:3rem;
+      &:after { content:''; display:block; width:65%; height:1px; margin:5px auto; background:$code-class-color; }
+    }
+    .content { overflow:hidden; max-width:1200px; margin:0 auto; }
+  }
+}
+
+#goTop { overflow:hidden; position:fixed; right:3rem; bottom:3rem; width:4rem; height:4rem; border-radius:50%; border:.3rem solid #ececec; background:#ececec;
+  &:before,
+  &:after { content:''; display:block; position:absolute; left:0; top:0; right:0; bottom:0; margin:auto; transition:all .1s linear; }
+  &:before { width:1rem; height:1rem; border-left:.3rem solid $base-up-color; border-top:.3rem solid $base-up-color; transform:rotate(45deg); }
+  &:after { width:.3rem; height:1.5rem; background:$base-up-color; }
+  &:hover {
+    &:before { top:-.3rem; border-color:$code-id-color; }
+    &:after { top:-.3rem; background:$code-id-color; }
+  }
+}

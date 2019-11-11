@@ -17,5 +17,15 @@ html(lang="ko")
         include /components/common/contents
         include /components/common/footer
 
-      script(src="/js/plugins/jquery-1.12.4.min.js")
+        button(type="button" id="goTop") Top
+
+      script.
+        var $buoop = {required:{e:0,f:0,o:0,s:0,c:0},insecure:true,mobile:false,api:2019.11 };
+        function $buo_f() {
+          var e = document.createElement("script");
+          e.src = "//browser-update.org/update.min.js";
+          document.body.appendChild(e);
+        };
+        try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+        catch(e){window.attachEvent("onload", $buo_f)}
       script(src=`/js/${project.title}.bundle.min.js`)
