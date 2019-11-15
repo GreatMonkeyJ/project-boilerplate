@@ -24,23 +24,23 @@ window.addEventListener('scroll', function () {
     var content = _this.querySelector('.inner .content');
 
     if (title !== null) {
-      var TL = new TimelineMax();
+      var TMSection = new TimelineMax();
 
-      TL.from(title, .6, { y: 60, autoAlpha: 0, ease: Power1.easeOut, });
-      TL.from(content, .6, { y: 30, autoAlpha: 0, ease: Power1.easeOut, });
+      TMSection.from(title, .6, { y: 60, autoAlpha: 0, ease: Power1.easeOut, })
+        .from(content, .6, { y: 30, autoAlpha: 0, ease: Power1.easeOut, });
 
       new ScrollMagic.Scene({
         offset: 120,
         triggerElement: _this,
         triggerHook: 0.9
       })
-        .setTween(TL)
-        // .addIndicators({
-        //   colorTrigger: "white",
-        //   colorStart: "white",
-        //   colorEnd: "white",
-        //   indent: 40
-        // })
+        .setTween(TMSection)
+        .addIndicators({
+          colorTrigger: 'white',
+          colorStart: 'white',
+          colorEnd: 'white',
+          indent: 40
+        })
         .on('enter', function() {
           if (i !== 0) {
             nav[i].classList.add('active');
@@ -57,4 +57,11 @@ window.addEventListener('scroll', function () {
         .addTo(ctrl);
     }
   });
+
+  var TMScrollDown = new TimelineMax({ repeat: -1});
+  var scrollDown = document.querySelector('.scrollDown');
+
+  TMScrollDown.from(scrollDown, 1, { y:-30, autoAlpha:0, ease: Power1.easeOut})
+    .to(scrollDown, 0.6, { autoAlpha: 0, ease: Power1.easeInOut });
+
 })();

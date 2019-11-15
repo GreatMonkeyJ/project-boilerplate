@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   function submitSuccess() {
     contactForm.reset();
-    contactFormSubmit.textContent = '전송이 완료되었습니다. 감사합니다.';
+    contactFormSubmit.textContent = '전송 완료';
   }
 
   function submitError() {
@@ -33,6 +33,8 @@ window.addEventListener('DOMContentLoaded', function () {
     var data = new FormData(contactForm);
     ajax(contactForm.method, contactForm.action, data, submitSuccess, submitError);
   });
+
+
 });
 
 document.getElementById('nav').addEventListener('click', function (e) {
@@ -65,4 +67,9 @@ document.getElementById('goTop').addEventListener('click', function() {
     left: 0,
     behavior: 'smooth'
   });
+});
+
+window.addEventListener('load', function() {
+  var preloader = document.getElementById('preloader');
+  preloader.style.cssText = 'opacity:0; z-index:-1;'
 });

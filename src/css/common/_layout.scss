@@ -42,13 +42,15 @@
       }
     }
 
-    ul { overflow:hidden; @include flex-container(center, flex-end); flex-flow:column wrap; position:fixed; right:4rem; top:8rem; z-index:4;
-      &:after { content:''; display:block; position:fixed; right:-100%; top:-100%; width:100%; height:100%; z-index:5; border-radius:50%; background:$code-id-color; transition:all .4s ease-in-out .6s; transform:scale(0); transform-origin:100% 0; }
-      li { position:relative; right:-100%; z-index:6;
+    ul { overflow:hidden; @include flex-container(center, flex-end); flex-flow:column wrap;
+      &:after { content:''; display:block; position:fixed; right:-100%; top:-100%; width:100%; height:100%; z-index:4; border-radius:50%; background:$code-id-color; transition:all .4s ease-in-out .6s; transform:scale(0); transform-origin:100% 0; }
+      li { position:fixed; right:-100%; z-index:6;
+        &:after { content:''; display:none; position:absolute; left:0; bottom:.8rem; right:0; width:80%; height:.2rem; margin:0 auto; background:$code-vari-color; }
         $length : 5;
         @for $i from $length through 1 {
           @if $i > 1 {
             &:nth-child(#{$i}) {
+              top:#{6 * $i + 'rem' };
               transition:right .2s ease-in-out #{((($length - $i) * 100)) + 'ms'};
             }
           } @else {
@@ -68,7 +70,10 @@
       }
       ul { visibility:visible;
         &:after { right:-50%; top:-50%; transition:all .6s ease-in-out; transform:scale(2); }
-        li { right:0;
+        li { right:4rem;
+          &.active {
+            &:after { display:block; }
+          }
           $length : 5;
           @for $i from 1 through $length {
             @if $i > 1 {

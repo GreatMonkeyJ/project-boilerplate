@@ -3,16 +3,10 @@ extends components/layouts/layout
 block append contents
   section#home
     div.inner
-      strong.title GreatMonkeyJ
+      strong.title HyunJiwon
       div.content
         span Front-End Developer
-
-  section#about
-    div.inner
-      strong.title About Me
-      div.content
-        div.intro
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat. Donec eu vehicula neque. Donec viverra lorem nunc, tempus euismod eros sollicitudin ut. Quisque et tincidunt libero. Donec id pharetra justo. Proin euismod lacinia dolor, eu scelerisque justo tempus pharetra. Vivamus nunc justo, finibus ut nisl sed, euismod rhoncus nulla. Proin sed magna egestas, egestas ante et, congue eros. In consequat, mauris dapibus tincidunt suscipit, ex libero aliquet diam, at maximus risus enim non leo.
+      i.scrollDown ScrollDown
 
   section#experience
     div.inner
@@ -28,7 +22,7 @@ block append contents
               div.company
                 strong.employer= experience.company.employer
                 span.position= experience.company.position
-                p.details= experience.company.detail
+                div.details !{experience.company.detail}
 
   section#skills
     div.inner
@@ -41,6 +35,57 @@ block append contents
               div.wave
                 strong.name= skill.name
                 span.proficiency= skill.proficiency
+
+  section#portfolio
+    div.inner
+      strong.title Portfolio
+      div.content
+        ul.portfolioList
+          li
+            div.info
+              div.logo
+                strong.title Cafe24
+                  span Store Global
+              div.detail
+                p.desc Reponsive Project
+                button(type="button" class="view" disabled="disabled") Protected
+          li
+            div.info
+              div.logo
+                strong.title Cafe24
+                  span Recipe
+              div.detail
+                p.desc Solution Project
+                a(href="//recipe.cafe24.com/" target="_blank" class="view") View
+          li
+            div.info
+              div.logo
+                strong.title Cafe24
+                  span Desiagn JP
+              div.detail
+                p.desc Solution Project
+                a(href="//design.cafe24.co.jp/" target="_blank" class="view") View
+          li
+            div.info
+              div.logo
+                strong.title Lab543
+              div.detail
+                p.desc Admin ERP Project
+                button(type="button" class="view" disabled="disabled") Protected
+          li
+            div.info
+              div.logo
+                strong.title CGV
+              div.detail
+                p.desc Web/Mobile Renewal & Maintain
+                a(href="//www.cgv.co.kr/" target="_blank" class="view") View
+          li
+            div.info
+              div.logo
+                strong.title Imvery
+              div.detail
+                p.desc Web/Mobile Renewal
+                a(href="//www.imvely.com/" target="_blank" class="view") View
 
   section#contact
     div.inner

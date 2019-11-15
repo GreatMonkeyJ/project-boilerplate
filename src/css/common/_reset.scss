@@ -12,20 +12,29 @@ input, select, textarea { font-size:$global-font-size; color:$global-font-color;
 label { cursor:pointer; }
 caption { overflow:hidden; width:1px; font-size:1px; line-height:0; text-indent:150%; white-space:nowrap; }
 legend { display:block; overflow:hidden; position:absolute; font-size:1px; line-height:0; color:transparent; text-indent:-150%; white-space:nowrap; }
-button { overflow:visible; padding:0; margin:0; border:0; outline:0; color:inherit; cursor:pointer; -webkit-user-select:none; background:transparent; transition:all .3s ease; }
-button:hover { border-color:$code-id-color !important; }
+button { overflow:visible; padding:0; margin:0; border:0; outline:0; color:inherit; @include round-box(1.5rem, 1px solid $code-cbra-color, .5rem); color:$code-other-color; cursor:pointer; -webkit-user-select:none; background:transparent; transition:all .3s ease; }
+button:hover { border-color:$code-id-color; }
+button[disabled] { cursor:default; }
+button[disabled]:hover { border-color:$code-vari-color; }
 button::-moz-focus-inner { padding:0; border:0; }
 a { text-decoration:none; color:$global-font-color; }
 a:hover { text-decoration:none; }
 input,
-textarea { width:100%; border:0; box-sizing:border-box; background:transparent; color:$code-other-color; transition:all .3s ease;
+textarea { width:100%; border:0; box-sizing:border-box; background:transparent; color:$code-other-color; transition:all .3s ease; -webkit-appearance:none;
   &::placeholder { color:$code-class-color; font-size:inherit; line-height:inherit; }
-  &:hover { border-color:$code-id-color !important; }
-  &:focus { border-color:$code-vari-color !important; }
-  &:invalid { border-color:$code-vari-color !important; }
+  &:hover { border-color:$code-id-color }
+  &:focus { border-color:$code-vari-color; outline:none; }
+  &:invalid { border-color:$code-vari-color; }
 }
-input { height:3rem; line-height:3rem; }
-textarea { height:15rem; line-height:1.5; }
+body {
+input:-internal-autofill-selected {
+  background-color:transparent !important;
+  background-image:none !important;
+  color:inherit !important;
+}
+}
+input { height:4rem; line-height:4rem; @include round-box(0 1rem, 1px solid $code-cbra-color, .5rem); }
+textarea { height:15rem; line-height:1.5; @include round-box(1rem, 1px solid $code-cbra-color, .5rem); }
 
 /* html5 */
 object, del, sub, var { margin:0; padding:0; }
