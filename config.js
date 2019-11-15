@@ -3,7 +3,7 @@
  */
 
 const project = {
-  title: 'project',
+  title: 'Portfolio',
   default: {
     src: 'src',
     dest: 'dist',
