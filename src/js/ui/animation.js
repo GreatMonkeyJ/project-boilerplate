@@ -35,12 +35,12 @@ window.addEventListener('scroll', function () {
         triggerHook: 0.9
       })
         .setTween(TMSection)
-        .addIndicators({
-          colorTrigger: 'white',
-          colorStart: 'white',
-          colorEnd: 'white',
-          indent: 40
-        })
+        // .addIndicators({
+        //   colorTrigger: 'white',
+        //   colorStart: 'white',
+        //   colorEnd: 'white',
+        //   indent: 40
+        // })
         .on('enter', function() {
           if (i !== 0) {
             nav[i].classList.add('active');
