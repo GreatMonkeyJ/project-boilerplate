@@ -1,11 +1,11 @@
 class Utils {
-  _numberFormat(target) {
-    let deleteComma = target.value.toString().replace(/\,/g, '');
+  constructor() {
+    this.name = 'Utils';
+    this.version = '1.0.0';
+  }
 
-    if (isFinite(deleteComma) === false) return target.value = '';
-
-    let temp = deleteComma;
-    return target.value = temp.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+  _detectMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   }
 }
 

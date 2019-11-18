@@ -54,21 +54,30 @@
 window.addEventListener('load', function () {
   var preloader = document.getElementById('preloader');
   preloader.style.cssText = 'opacity:0; z-index:-1;'
+});
 
-  window.addEventListener('scroll', function () {
-    var home = document.getElementById('home');
-    var goTop = document.getElementById('goTop');
-    var positionY = window.pageYOffset;
-    var initWidth = 1079;
+window.addEventListener('scroll', function () {
+  var home = document.getElementById('home');
+  var goTop = document.getElementById('goTop');
+  var positionY = window.pageYOffset;
+  var initWidth = 1079;
 
-    if (positionY < home.offsetHeight && window.innerWidth > initWidth) {
-      home.style.backgroundPosition = '0 -' + (positionY / 2) + 'px';
-    }
+  if (positionY < home.offsetHeight && window.innerWidth > initWidth) {
+    home.style.backgroundPosition = '0 -' + (positionY / 2) + 'px';
+  }
 
-    if (positionY > window.innerHeight) {
-      goTop.style.cssText = 'z-index:5; opacity:1; visibility:visible;';
-    } else {
-      goTop.style.cssText = 'z-index:-1; opacity:0; visibility:hidden;';
-    }
-  });
+  if (positionY > window.innerHeight) {
+    goTop.style.cssText = 'z-index:5; opacity:1; visibility:visible;';
+  } else {
+    goTop.style.cssText = 'z-index:-1; opacity:0; visibility:hidden;';
+  }
+});
+
+window.addEventListener('resize', function () {
+  var home = document.getElementById('home');
+  var initWidth = 1079;
+
+  if (window.innerWidth < initWidth) {
+    home.style.backgroundPosition = 'center center';
+  }
 });
