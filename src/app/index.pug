@@ -31,10 +31,11 @@ block append contents
         - var skills = require('./src/js/data/skills.js');
         ul.skillList
           each skill in skills
-            li(style=`border-color:${skill.pointColor}; background-color:${skill.pointColor}; --percent:${skill.proficiency};`)
-              div.wave
+            li(style=`border-color:${skill.pointColor}; --percent:${skill.proficiency};`)
+              div(style=`background-color:${skill.pointColor};` class="info")
                 strong.name= skill.name
                 span.proficiency= skill.proficiency
+              div.wave
 
   section#portfolio
     div.inner
@@ -77,7 +78,7 @@ block append contents
               div.logo
                 strong.title CGV
               div.detail
-                p.desc Web/Mobile Renewal & Maintain
+                p.desc Web/Mobile Renewal
                 a(href="//www.cgv.co.kr/" target="_blank" class="view") View
           li
             div.info

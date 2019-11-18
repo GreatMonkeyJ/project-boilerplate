@@ -1,7 +1,7 @@
 /* Index */
 #contents {
   section {
-    &#home  { width:100%; height:100vh; background:url('/images/home_bg.jpg') no-repeat 0 0; background-size:cover; background-attachment:fixed;
+    &#home  { width:100%; height:100vh; background:url('/images/home_bg.jpg') no-repeat center center; background-size:cover;
       &:after { content:''; display:block; position:absolute; left:0; top:0; z-index:1; width:100%; height:100%; background:rgba(40, 44, 52, .8); }
       .inner { position:relative; z-index:2; @include flex-container(center, center); flex-flow:column wrap; width:100%; height:100%; padding:0;
         .title { display:block; padding:0; color:$code-id-color; font-size:5rem;
@@ -10,7 +10,7 @@
         .content {
           span { color:$code-class-color; font-size:2rem; }
         }
-        .scrollDown { display:block; position:absolute; left:0; bottom:5%; right:0; width:1.5rem; height:1.5rem; margin:0 auto; border-left:.3rem solid #ececec; border-top:.3rem solid #ececec; transform:rotate(-135deg); color:transparent; font-size:0; }
+        .scrollDown { display:block; position:absolute; left:0; bottom:5vh; right:0; width:1.5rem; height:1.5rem; margin:0 auto; border-left:.3rem solid #ececec; border-top:.3rem solid #ececec; transform:rotate(-135deg); color:transparent; font-size:0; }
       }
     }
 
@@ -56,7 +56,12 @@
 
     &#skills {
       .skillList { @include flex-container(center, center); flex-wrap:wrap;
-        li { border-width:.3rem; border-style:solid; border-radius:50%; margin:1rem; }
+        li { overflow:hidden; position:relative; z-index:2; margin:1rem; padding:3px; border-width:3px; border-style:solid; border-radius:50%; box-sizing:border-box;
+          .info { overflow:hidden; @include flex-container(center, center); flex-flow:column wrap; width:100%; height:100%; border-radius:50%;
+            .name { position:relative; z-index:3; font-size:1.5rem; }
+            .proficiency { position:relative; z-index:3; margin-top:.3rem; font-size:1.3rem; }
+          }
+        }
       }
     }
 
@@ -73,26 +78,31 @@
             &:after { content:''; display:block; position:absolute; z-index:1; height:100%; border-left:2px solid $code-id-color; transition:all .3s ease; }
             &:before { left:0; bottom:100%; }
             &:after { right:0; top:100%; }
-            .logo { position:relative; width:100%; height:100%; padding:3rem; border:2px solid $code-cbra-color; box-sizing:border-box;
+            .logo { position:relative; width:100%; height:100%; border:2px solid $code-cbra-color; box-sizing:border-box;
               .title { position:absolute; left:0; top:calc(50% - 1.75rem); right:0; margin:0 auto; font-size:2.5rem; transition: all .6s ease;
                 span { margin-left:.5rem; font-size:1.5rem; }
               }
             }
             .detail { position:absolute; left:0; top:calc(50% + 4rem); right:0; z-index:2; margin:0 auto; transition: all .6s ease; visibility:hidden; opacity:0;
-              .desc { margin-bottom:1rem; font-size:1.2rem; color:$code-class-color; }
+              .desc { margin-bottom:1rem; font-size:1.2rem; color:$code-class-color;
+                span { display:block; margin-top:.2rem; }
+              }
               a.view { display:inline-block; padding:1rem 2rem; border:1px solid $code-class-color; border-radius:1rem; font-size:1.2rem; color:$code-other-color;
-                &:hover { border-color:$code-id-color; }
+                @include hover-supported {
+                  border-color:$code-id-color;
+                }
               }
               button.view { padding:1rem 2rem; }
             }
           }
 
-          &:hover {
+          @include hover-supported{
             &:before { right:0; }
             &:after { left:0; }
             .info {
               &:before { bottom:0; }
               &:after { top:0; }
+              .title { top:calc(50% - 3.5rem); }
               .detail { top:calc(50% + 1.8rem); opacity:1; visibility:visible; }
             }
           }
@@ -104,8 +114,8 @@
       form {
         #name { margin:0 0 1rem; }
         #email { margin:0 0 1rem; }
-        #message { min-width:100%; max-width:100%; min-height:15rem; max-height:30rem; margin:0 0 1rem;   }
-        #contactFormSubmit { min-width:100%; font-size:1.2rem; }
+        #message { min-width:100%; max-width:100%; min-height:15rem; max-height:30rem; margin:0 0 1rem; }
+        #contactFormSubmit { min-width:100%; }
       }
     }
   }
@@ -114,12 +124,22 @@
 @include media('pc') {
   #contents {
     section {
-     &#experience {
+      &#home { background-attachment:fixed;
+        .inner {
+          .scrollDown { bottom:5vh; }
+        }
+      }
+
+      &#experience {
         .inner { width:calc(100% / 1.2); margin:0 auto; }
       }
 
       &#skills {
-        .inner { width:calc(100% / 1.2); margin:0 auto; }
+        .inner { width:calc(100% / 1.2); margin:0 auto;
+          .skillList {
+            li { width:15rem; height:15rem; }
+          }
+        }
       }
 
       &#portfolio {
@@ -140,18 +160,44 @@
 @include media('tablet') {
   #contents {
     section {
+      &#home { background-attachment:scroll;
+        .inner {
+          .scrollDown { bottom:10vh; }
+        }
+      }
+
       &#experience {
         .inner { width:calc(100% / 1.3); margin:0 auto; }
       }
 
       &#skills {
-        .inner { width:calc(100% / 1.3); margin:0 auto; }
+        .inner { width:calc(100% / 1.3); margin:0 auto;
+          .skillList {
+            li { width:14rem; height:14rem; }
+          }
+        }
       }
 
       &#portfolio {
         .inner { width:calc(100% / 1.3); margin:0 auto;
           .portfolioList {
-            li { width:31%; margin:1%; padding-top:31%; }
+            li { width:31%; margin:1%; padding-top:31%;
+              &:before { right:0 }
+              &:after { left:0;}
+
+              .info { overflow:hidden; position:absolute; left:0; top:0; width:100%; height:100%;
+                &:before { bottom:0; }
+                &:after { top:0; }
+                .logo { position:relative; width:100%; height:100%; border:2px solid $code-cbra-color; box-sizing:border-box;
+                  .title { top:calc(50% - 3.5rem); font-size:2.5rem;
+                    span { display:block; margin-left:0; font-size:1.2rem; }
+                  }
+                }
+                .detail { top:calc(50% + 2rem); visibility:visible; opacity:1;
+                  button[disabled] { border-color:$code-vari-color; }
+                }
+              }
+            }
           }
         }
       }
@@ -166,6 +212,14 @@
 @include media('mobile') {
   #contents {
     section {
+      &#home {
+        .inner {
+          .title { margin-top:-10rem; }
+          .content { margin-top:.5rem; }
+          .scrollDown { bottom:15vh; }
+        }
+      }
+
       &#experience {
         .inner { width:calc(100% / 1.2); margin:0 auto;
           .expList { padding-left:3rem;
@@ -182,13 +236,24 @@
       }
 
       &#skills {
-        .inner { width:calc(100% / 1.2); margin:0 auto; }
+        .inner { width:calc(100% / 1.2); margin:0 auto;
+          .skillList {
+            li { width:13rem; height:13rem; margin:1.2rem; }
+          }
+        }
       }
 
       &#portfolio {
         .inner { width:calc(100% / 1.2); margin:0 auto;
           .portfolioList {
-            li { width:46%; margin:2%; padding-top:48%; }
+            li { width:48%; margin:1%; padding-top:48%;
+              .info {
+                .logo {
+                  .title { top:calc(50% - 5.5rem); }
+                }
+                .detail { top:50%; }
+              }
+            }
           }
         }
       }

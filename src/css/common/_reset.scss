@@ -12,7 +12,7 @@ input, select, textarea { font-size:$global-font-size; color:$global-font-color;
 label { cursor:pointer; }
 caption { overflow:hidden; width:1px; font-size:1px; line-height:0; text-indent:150%; white-space:nowrap; }
 legend { display:block; overflow:hidden; position:absolute; font-size:1px; line-height:0; color:transparent; text-indent:-150%; white-space:nowrap; }
-button { overflow:visible; padding:0; margin:0; border:0; outline:0; color:inherit; @include round-box(1.5rem, 1px solid $code-cbra-color, .5rem); color:$code-other-color; cursor:pointer; -webkit-user-select:none; background:transparent; transition:all .3s ease; }
+button { overflow:visible; padding:0; margin:0; border:0; outline:0; color:inherit; @include round-box(1.5rem, 1px solid $code-cbra-color, .5rem); color:$code-other-color; font-size:$global-font-size; cursor:pointer; -webkit-user-select:none; background:transparent; transition:all .3s ease; }
 button:hover { border-color:$code-id-color; }
 button[disabled] { cursor:default; }
 button[disabled]:hover { border-color:$code-vari-color; }
