@@ -211,12 +211,12 @@ const clean = (done) => {
  * Gulp task watch
  */
 const watcher = (done) => {
-  watch(paths.styles.wildcard, parallel(styles)).on('change', browserSync.reload);
-  watch(paths.scripts.wildcard, parallel(scripts, ignore)).on('change', browserSync.reload);
-  watch(paths.pugs.src, parallel(pugs)).on('change', browserSync.reload);
-  watch(paths.images.wildcard, parallel(images)).on('change', browserSync.reload);
-  watch(paths.svg.wildcard, parallel(svg)).on('change', browserSync.reload);
-  watch(paths.fonts.wildcard, parallel(fonts)).on('change', browserSync.reload);
+  watch(paths.styles.wildcard, series(styles)).on('change', browserSync.reload);
+  watch(paths.scripts.wildcard, series(scripts, ignore)).on('change', browserSync.reload);
+  watch(paths.pugs.src, series(pugs)).on('change', browserSync.reload);
+  watch(paths.images.wildcard, series(images)).on('change', browserSync.reload);
+  watch(paths.svg.wildcard, series(svg)).on('change', browserSync.reload);
+  watch(paths.fonts.wildcard, series(fonts)).on('change', browserSync.reload);
 
   done();
 };
@@ -225,7 +225,7 @@ const watcher = (done) => {
 /**
  * build Function
  */
-const build = series(clean, parallel(styles, scripts, ignore, pugs, images, svg, fonts));
+const build = series(clean, series(styles, scripts, ignore, pugs, images, svg, fonts));
 
 
 /**

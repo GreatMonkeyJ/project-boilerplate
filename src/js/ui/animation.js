@@ -2,7 +2,7 @@
 
 window.addEventListener('load', function () {
   var preloader = document.getElementById('preloader');
-  preloader.style.cssText = 'opacity:0; z-index:-1;'
+  return preloader.style.cssText = 'opacity:0; z-index:-1;';
 });
 
 window.addEventListener('scroll', function () {
@@ -31,7 +31,7 @@ window.addEventListener('resize', function () {
   }
 });
 
-(function () {
+window.addEventListener('DOMContentLoaded', function () {
   var nav = document.querySelectorAll('nav ul li');
   var sections = document.querySelectorAll('section');
   var ctrl = new ScrollMagic.Controller();
@@ -56,33 +56,33 @@ window.addEventListener('resize', function () {
         triggerElement: _this,
         triggerHook: 0.9
       })
-        .setTween(TMSection)
-        // .addIndicators({
-        //   colorTrigger: 'white',
-        //   colorStart: 'white',
-        //   colorEnd: 'white',
-        //   indent: 40
-        // })
-        .on('enter', function() {
-          if (i !== 0) {
-            nav[i].classList.add('active');
-            nav[i - 1].classList.remove('active');
-          }
-        })
-        .on('leave', function () {
-          nav[i].classList.remove('active');
+      .setTween(TMSection)
+      // .addIndicators({
+      //   colorTrigger: 'white',
+      //   colorStart: 'white',
+      //   colorEnd: 'white',
+      //   indent: 40
+      // })
+      .on('enter', function() {
+        if (i !== 0) {
+          nav[i].classList.add('active');
+          nav[i - 1].classList.remove('active');
+        }
+      })
+      .on('leave', function () {
+        nav[i].classList.remove('active');
 
-          if (i !== 1) {
-            nav[i - 1].classList.add('active');
-          }
-        })
-        .addTo(ctrl);
+        if (i !== 1) {
+          nav[i - 1].classList.add('active');
+        }
+      })
+      .addTo(ctrl);
     }
   });
 
-  var TMScrollDown = new TimelineMax({ repeat: -1});
+  var TMScrollDown = new TimelineMax({ repeat: -1, });
   var scrollDown = document.querySelector('.scrollDown');
 
-  TMScrollDown.from(scrollDown, 1, { y:-30, autoAlpha:0, ease: Power1.easeOut})
-    .to(scrollDown, 0.6, { autoAlpha: 0, ease: Power1.easeInOut });
-})();
+  TMScrollDown.from(scrollDown, 1, { y:-30, autoAlpha:0, ease: Power1.easeOut, })
+    .to(scrollDown, 0.6, { autoAlpha: 0, ease: Power1.easeInOut, });
+});

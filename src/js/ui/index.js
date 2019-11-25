@@ -1,6 +1,5 @@
 'use strict';
 
-
 window.addEventListener('DOMContentLoaded', function () {
   var contactForm = document.getElementById('contactForm');
   var contactFormSubmit = document.getElementById('contactFormSubmit');

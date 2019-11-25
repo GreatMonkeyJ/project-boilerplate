@@ -10,23 +10,7 @@ html(lang="ko")
     meta(http-equiv="X-UA-Compatible" content="ie=edge")
     title HyunJiwon-Portfolio
     link(rel="stylesheet" href=`/css/${project.title}.min.css`)
-    script.
-      try { _helper.Utils._detactAgentIE(); }
-      catch(e) { console.log(e); }
 
-      var $buoop = { required:{ e:0, f:0, o:0, s:0, c:0 }, insecure:true, unsupported:true, mobile:false, api:2019.11,
-        text_for_i : {
-          'msg':'지금 보고 계신 포트폴리오 Chrome 브라우저 최적화 되어있습니다.',
-          'msgmore': '최신 버전에 Chrome 브라우저에서 확인 부탁드립니다.'
-        }
-      };
-      function $buo_f() {
-        var e = document.createElement("script");
-        e.src = "//browser-update.org/update.min.js";
-        document.body.appendChild(e);
-      };
-      try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
-      catch(e){window.attachEvent("onload", $buo_f)}
 
   body(class=bodyClass)
     block body
@@ -36,11 +20,28 @@ html(lang="ko")
         include /components/common/footer
 
         button(type="button" id="goTop") Top
-        div#preloader
-          div.inner
-            i.dot
-            i.dot
-            i.dot
-            i.dot
+      div#preloader
+        div.inner
+          i.dot
+          i.dot
+          i.dot
+          i.dot
 
       script(src=`/js/${project.title}.bundle.min.js`)
+      script.
+        var $buoop = { required:{ e:0, f:0, o:0, s:0, c:0 }, insecure:true, unsupported:true, mobile:false, api:2019.11,
+          text_for_i : {
+            'msg':'본 포트폴리오 사이트는 Chrome 최신 브라우저에 최적화되어 있습니다.',
+            'msgmore': '최신 버전의 Chrome 브라우저에서 확인 부탁드립니다.'
+          },
+          text_for_c : {
+            'msg':'본 포트폴리오 사이트는 Chrome 최신 브라우저에 최적화되어 있습니다.',
+            'msgmore': '최신 버전의 Chrome 브라우저에서 확인 부탁드립니다..'
+          }
+        };
+
+        try {document.addEventListener('DOMContentLoaded', _helper.Utils._browserUpdate, false)}
+        catch(e){window.attachEvent('onload', _helper.Utils._browserUpdate)}
+
+        try {document.addEventListener('DOMContentLoaded', _helper.Utils._detactAgentIE, false)}
+        catch(e){window.attachEvent('onload', _helper.Utils._detactAgentIE)}
