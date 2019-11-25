@@ -13,7 +13,7 @@
   html { font-size:12px; }
 
   #nav {
-    ul { @include flex-container(flex-end); position:fixed; left:0; top:0; z-index:4; width:100%; padding:0 2rem; border-bottom:1px solid #404040; box-sizing:border-box; background:rgba(40, 44, 52, .8);
+    ul { @include flex-container(); position:fixed; left:0; top:0; z-index:4; width:100%; padding:0 2rem; border-bottom:1px solid #404040; box-sizing:border-box; background:rgba(40, 44, 52, .8);
       li { display:inline-block; position:relative;
         &:after { content:''; display:none; position:absolute; left:0; bottom:1.8rem; right:0; width:80%; height:.2rem; margin:0 auto; background:$code-vari-color; }
         &:first-child { margin-right:auto;
