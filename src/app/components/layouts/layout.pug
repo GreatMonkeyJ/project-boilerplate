@@ -10,6 +10,24 @@ html(lang="ko")
     meta(http-equiv="X-UA-Compatible" content="ie=edge")
     title HyunJiwon-Portfolio
     link(rel="stylesheet" href=`/css/${project.title}.min.css`)
+    script.
+      try { _helper.Utils._detactAgentIE(); }
+      catch(e) { console.log(e); }
+
+      var $buoop = { required:{ e:0, f:0, o:0, s:0, c:0 }, insecure:true, unsupported:true, mobile:false, api:2019.11,
+        text_for_i : {
+          'msg':'지금 보고 계신 포트폴리오 Chrome 브라우저 최적화 되어있습니다.',
+          'msgmore': '최신 버전에 Chrome 브라우저에서 확인 부탁드립니다.'
+        }
+      };
+      function $buo_f() {
+        var e = document.createElement("script");
+        e.src = "//browser-update.org/update.min.js";
+        document.body.appendChild(e);
+      };
+      try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+      catch(e){window.attachEvent("onload", $buo_f)}
+
   body(class=bodyClass)
     block body
       #wrap
@@ -25,13 +43,4 @@ html(lang="ko")
             i.dot
             i.dot
 
-      script.
-        var $buoop = {required:{e:0,f:0,o:0,s:0,c:0},insecure:true,mobile:false,api:2019.11 };
-        function $buo_f() {
-          var e = document.createElement("script");
-          e.src = "//browser-update.org/update.min.js";
-          document.body.appendChild(e);
-        };
-        try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
-        catch(e){window.attachEvent("onload", $buo_f)}
       script(src=`/js/${project.title}.bundle.min.js`)
