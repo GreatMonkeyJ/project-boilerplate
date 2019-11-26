@@ -20,7 +20,12 @@ class Utils {
     var wrapper = document.getElementById('wrap');
 
     if ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || (agent.indexOf('msie') != -1)) {
-      document.body.classList.add('unsupported-browser');
+      if (wrapper.classList) {
+        document.body.classList.add('unsupported-browser');
+      } else {
+        document.body.setAttribute('class', 'unsupported-browser');
+      }
+
       return wrapper.innerHTML = '';
     }
   }
