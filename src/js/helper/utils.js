@@ -18,8 +18,7 @@ class Utils {
   _detactAgentIE () {
     var agent = navigator.userAgent.toLowerCase();
     var wrapper = document.getElementById('wrap');
-    console.log('Agent', agent);
-    console.dir(wrapper);
+
     if ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || (agent.indexOf('msie') != -1)) {
       document.body.classList.add('unsupported-browser');
       return wrapper.innerHTML = '';

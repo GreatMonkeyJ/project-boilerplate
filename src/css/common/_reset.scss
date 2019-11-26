@@ -50,7 +50,11 @@ article, aside, details, figcaption, figure, footer, header, main, hgroup, menu,
 @include languages();
 
 /* Browser Update(Support) */
-#buorg { padding: 10px 0 15px;
-  .buorg-moremsg { display:block; }
-  .buorg-buttons { padding:10px 0 0; }
+.unsupported-browser {
+  #buorg { display:block !important; padding:10px 0 15px;
+    .buorg-moremsg { display:block; }
+    .buorg-buttons { padding:10px 0 0;
+      #buorgig { display:none; }
+    }
+  }
 }
