@@ -41,52 +41,22 @@ block append contents
     div.inner
       strong.title Portfolio
       div.content
+        - var portfolio = require('./src/js/data/portfolio.js');
         ul.portfolioList
-          li
-            div.info
-              div.logo
-                strong.title Cafe24
-                  span Store Global
-              div.detail
-                p.desc Reponsive Project
-                button(type="button" class="view" disabled="disabled") Protected
-          li
-            div.info
-              div.logo
-                strong.title Cafe24
-                  span Recipe
-              div.detail
-                p.desc Solution Project
-                a(href="//recipe.cafe24.com/" target="_blank" class="view") View
-          li
-            div.info
-              div.logo
-                strong.title Cafe24
-                  span Desiagn JP
-              div.detail
-                p.desc Solution Project
-                a(href="//design.cafe24.co.jp/" target="_blank" class="view") View
-          li
-            div.info
-              div.logo
-                strong.title Lab543
-              div.detail
-                p.desc Admin ERP Project
-                button(type="button" class="view" disabled="disabled") Protected
-          li
-            div.info
-              div.logo
-                strong.title CGV
-              div.detail
-                p.desc Web/Mobile Renewal
-                a(href="//www.cgv.co.kr/" target="_blank" class="view") View
-          li
-            div.info
-              div.logo
-                strong.title Imvely
-              div.detail
-                p.desc Web/Mobile Renewal
-                a(href="//www.imvely.com/" target="_blank" class="view") View
+          each project in portfolio
+            - console.log(project)
+            li
+              div.info
+                div.logo
+                  strong.title= project.title
+                    if !!project.subTitle
+                      span= project.subTitle
+                div.detail
+                  p.desc= project.description
+                  if project.protected
+                    button(type="button" class="view" disabled="disabled") Protected
+                  if !!project.href
+                    a(href=`${project.href}` target="_blank" class="view") View
 
   section#contact
     div.inner

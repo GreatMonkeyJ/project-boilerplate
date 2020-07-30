@@ -1,6 +1,38 @@
 const experience = [
   {
     date: {
+      start: '2020.06',
+      end: '2020.07~',
+    },
+    company: {
+      employer: 'SK 커뮤니케이션즈',
+      position: 'Front-end 개발팀',
+      detail: `
+        <strong>유/무선 뉴스 개발</strong>
+        <ul>
+          <li>키워드 차트 개발</li>
+        </ul>
+      `,
+    }
+  },
+  {
+    date: {
+      start: '2020.03',
+      end: '2020.06',
+    },
+    company: {
+      employer: 'Does',
+      position: 'Front-end 개발팀',
+      detail: `
+        <strong>데이터 시각화 및 인터렉션 작업</strong>
+        <ul>
+          <li>영상 기반 차트 개발</li>
+        </ul>
+      `,
+    }
+  },
+  {
+    date: {
       start: '2018.10',
       end: '2019.11',
     },
@@ -8,21 +40,15 @@ const experience = [
       employer: 'Cafe24',
       position: 'UI 개발 파트',
       detail: `
-        <strong>Front-end 개발 환경 구성</strong>
+        <strong>내부 프로젝트</strong>
         <ul>
-          <li>Sass, Pug, Gulp, ES6 빌드 자동화 개발 환경 구성</li>
-          <li>Vue 도입 개발 환경 구성</li>
-          <li>TextEditor 자동화 양식 개발 및 환경 구성</li>
-          <li>DesignSystem 개발 및 환경 구성</li>
+          <li>Sass, Pug, Gulp, ES6 도입 환경 구성 및 프로젝트 진행</li>
+          <li>DesignSystem 개발</li>
         </ul>
-        <strong>Front/Admin 솔루션 고도화 및 기능 개선</strong>
+        <strong>솔루션 고도화 및 기능 개선</strong>
         <ul>
           <li>정기 기능 개선 및 고도화 작업</li>
           <li>Bug/CS 처리 및 정기 기능 개선</li>
-        </ul>
-        <strong>지사 감리</strong>
-        <ul>
-          <li>Front/Admin/ERP 기능 개선 및 감리</li>
         </ul>
       `,
     }
